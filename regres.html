@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Kalkulator plate</title>
+	<style>
+                body {
+  			font-family: sans-serif;
+  			margin: 0;
+  			padding: 0;
+  			font-size: 1.2em;
+			}
+		header {
+  			background-color: #333;
+  			color: #fff;
+  			padding: 20px;
+  			text-align: center;
+			}
+		header h1 {
+  			margin: 0;
+			}
+		form    {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 90%;
+			margin: 0 auto;
+			padding: 20px;
+			border: 1px solid lightgrey;
+			border-radius: 5px;
+			box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+			font-family: sans-serif;
+
+		}
+
+		form * {
+			margin: 10px 0;
+		}
+
+		label {
+			font-size: 1.5em;
+			font-weight: 600;
+		}
+
+		input[type="text"] {
+			width: 100%;
+			height: 50px;
+			padding: 0 10px;
+			border: 1px solid lightgrey;
+			border-radius: 5px;
+			font-size: 2em;
+			outline: none;
+			text-align: center;
+		}
+
+		button[type="submit"] {
+			width: 100%;
+			height: 50px;
+			background-color: dodgerblue;
+			border: none;
+			border-radius: 5px;
+			color: white;
+			font-size: 1em;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background-color 0.2s;
+		}
+
+		button[type="submit"]:hover {
+			background-color: deepskyblue;
+		}
+
+		table {
+			width: 100%;
+			margin: 20px 0;
+			border-collapse: collapse;
+			font-family: sans-serif;
+			font-size: 1.5em;
+		}
+
+		th, td {
+			border: 1px solid lightgrey;
+			padding: 10px;
+		}
+
+		th {
+			text-align: left;
+			background-color: lightgrey;
+			font-weight: 600;
+		}
+
+		tr:nth-child(even) {
+			background-color: white;
+		}
+
+		tr:nth-child(odd) {
+			background-color: lightgrey;
+		}
+
+		td:nth-child(2) {
+			text-align: right;
+		}
+	</style>
+</head>
+<header>
+  <div style="float: left;">
+    <button style="color: white; background-color: blue; border: none; font-size: 16px; padding: 12px 30px;">
+      <a style="color: inherit; text-decoration: none;" href="./dashboard.html">Naslovna</a>
+    </button>
+  </div>
+  <h1>Opština Foča</h1>
+</header>
+
+<body>
+	<form id="calculator-form">
+		<label for="neto">Neto regres:</label>
+		<input type="text" id="neto-regres">
+	<button type="submit">Izračunaj</button>
+	</form>
+
+<table id="salary-table"></table>
+<script>
+	const form = document.getElementById('calculator-form');
+	const table = document.getElementById('salary-table');
+
+	form.addEventListener('submit', event => {
+		event.preventDefault();
+
+		// dohvatimo vrijednosti iz forme
+		const netoRegres = parseFloat(document.getElementById('neto-regres').value);
+		
+
+		// provjerimo da li su uneseni brojevi
+		if (isNaN(netoRegres)) {
+			alert('Molimo unesite ispravne brojeve!');
+			return;
+		}
+
+		// izračunajmo platežne stavke
+		const brutoRegres = (netoRegres / 0.61);
+		const pio = brutoRegres * 0.185;
+		const health = brutoRegres * 0.102;
+		const employment = brutoRegres * 0.006;
+		const child = brutoRegres * 0.017;
+		const contributions = pio + health + employment + child;
+		const tax = brutoRegres * 0.08;
+                const netoRegresFinal = brutoRegres - pio - health - employment - child - tax;
+
+		// prikažimo rezultate u tabeli
+		table.innerHTML = `
+		
+		<tr>
+			<td>Bruto regres:</td>
+			<td align="right">${brutoRegres.toFixed(2)}</td>
+</tr>
+<tr>
+<td>Doprinosi za PIO:</td>
+<td align="right">${pio.toFixed(2)}</td>
+</tr>
+<tr>
+<td>Doprinosi za ZDR:</td>
+<td align="right">${health.toFixed(2)}</td>
+</tr>
+<tr>
+<td>Doprinosi za NZ:</td>
+<td align="right">${employment.toFixed(2)}</td>
+</tr>
+<tr>
+<td>Doprinosi za DJ:</td>
+<td align="right">${child.toFixed(2)}</td>
+</tr>
+<tr>
+<td>Ukupni doprinosi:</td>
+<td align="right">${contributions.toFixed(2)}</td>
+</tr>
+<tr>
+<td>Porez:</td> <td align="right">${tax.toFixed(2)}</td>
+			</tr>
+			<tr>
+				<td>Neto regres:</td>
+				<td align="right">${netoRegresFinal.toFixed(2)}</td>
+			</tr>`;
+		});
+	</script>
+</body>
+</html>
+
+
