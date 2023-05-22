@@ -1,138 +1,154 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My Dashboard</title>
+<head>
+  <title>My Dashboard</title>
   <style>
-  body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  font-size: 2.2em;
-}
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      font-size: 2.2em;
+    }
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-a {
-  margin-left: 5%;
-   font-size: 2em;	
-}	  
-header h1 {
-  margin: 0;
-   font-size: 2em;	
-}
+    a {
+      margin-left: 5%;
+      font-size: 2em;
+    }
 
-nav {
-  background-color: #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
+    nav {
+      background-color: #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
 
-nav li {
-  margin: 0 10px;
-}
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
 
-nav a {
-  color: #333;
-  text-decoration: none;
-}
+    nav li {
+      margin: 0 10px;
+    }
 
-main {
-  padding: 20px;
-}
+    nav a {
+      color: #333;
+      text-decoration: none;
+    }
 
-section {
-  margin-bottom: 20px;
-}
+    main {
+      padding: 20px;
+    }
 
-section h2 {
-  margin-top: 0;
-}
+    section {
+      margin-bottom: 20px;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+    section h2 {
+      margin-top: 0;
+    }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-th {
-  background-color: #333;
-  color: #fff;
-}
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: 1.2em; /* Decreased font size for table cells */
+    }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+    th {
+      background-color: #333;
+      color: #fff;
+    }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
 
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
 
+    /* Media query for smaller screens */
+    @media (max-width: 600px) {
+      body {
+        font-size: 1.6em; /* Decreased font size for body */
+      }
 
-  </style>  
-  </head>
-  <body>
-    <header>
-      <h1>Opština Foča</h1>
-    </header>
-    
-    <main>
+      header {
+        padding: 10px; /* Decreased padding for header */
+      }
 
-      <section id="sales">
-     
-        
-        <table>
-          <tr>
-            <th><a>Kalkulatori ličnih primanja</a></th>
-            
-          </tr>
-          <tr>
-         
-            <td><a href="https://ivaanasenior.github.io/kalkulator/plata.html">Plata</a></td>
-          </tr>
-          <tr>
-		  
-            
-            <td><a>Topli obrok</a></td>
-          </tr>
-          <tr>
-         
-            <td><a href="https://ivaanasenior.github.io/kalkulator/regres.html">Regres</a></td>
-          </tr>
-         
-          <tr>
-        
-            <td><a href="https://ivaanasenior.github.io/kalkulator/djelo.html">Zgovor o djelu</a></td>
-          </tr>
-          
-          
-        </table>
-      </section>
-      
-    </main>
-    <footer>
-      <p>Godina 2023. - Opština Foča</p>
-    </footer>
-  </body>
+      a {
+        margin-left: 2%; /* Decreased margin for links */
+        font-size: 1.6em; /* Decreased font size for links */
+      }
+
+      header h1 {
+        font-size: 1.6em; /* Decreased font size for header h1 */
+      }
+
+      main {
+        padding: 10px; /* Decreased padding for main content */
+      }
+
+      table {
+        font-size: 1em; /* Decreased font size for table */
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Opština Foča</h1>
+</header>
+
+<main>
+  <section id="sales">
+    <table>
+      <tr>
+        <th><a>Kalkulatori ličnih primanja</a></th>
+      </tr>
+      <tr>
+        <td><a href="https://ivaanasenior.github.io/kalkulator/plata.html">Plata</a></td>
+      </tr>
+      <tr>
+        <td><a>Topli obrok</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://ivaanasenior.github.io/kalkulator/regres.html">Regres</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://ivaanasennior.github.io/kalkulator/djelo.html">Zgovor o djelu</a></td>
+</tr>
+</table>
+
+  </section>
+</main>
+<footer>
+  <p>Godina 2023. - Opština Foča</p>
+</footer>
+</body>
 </html>
